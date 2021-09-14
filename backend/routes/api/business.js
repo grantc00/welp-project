@@ -41,8 +41,8 @@ router.get(
 router.post(
   "/",
   asyncHandler(async (req, res, next) => {
-    const { title, description, address } = req.body;
-    const newBusiness = await Question.create({
+    const { ownerId, title, description, address } = req.body;
+    const newBusiness = await Business.create({
       ownerId,
       title,
       description,
@@ -53,7 +53,29 @@ router.post(
 );
 
 //Update a business
+router.post(
+  "/:id(\\d+)/edit",
+  asyncHandler(async (req, res, next) => {
+    const updateBusiness = await Business.findByPk(req.params.id);
+    await updateBusiness.update({
+      title: req.body.title,
+      description: req.body.details,
+      address: req.body.address,
+    });
+    // res.redirect(`/${req.body.id}`)
+    res.json(updateBusiness);
+  })
+);
 
 //Delete business
+router.post(
+  "/:id(\\d+)/delete",
+  asyncHandler(async (req, res, next) => {
+    const business = await Business.findByPk(req.params.id);
+    await business.destroy();
+    // res.redirect("/");
+    res.json(business);
+  })
+);
 
 module.exports = router;
