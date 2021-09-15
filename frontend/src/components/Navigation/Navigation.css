@@ -1,0 +1,48 @@
+body {
+    /* background-color: #1F1B24; */
+}
+
+.homeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*
+.lSButton {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  margin-top: 2rem;
+  margin-bottom:2rem;
+
+} */
+.nav-bar {
+    display: flex;
+    position: relative;
+    top: 16px;
+    justify-content: flex-end;
+    right: 93px;
+}
+
+#loginButton {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+/*
+#singupButton {
+    margin-top: 2rem;
+    margin-bottom:2rem;
+} */
+
+.splash-top-img {
+    top:0;
+    left:0;
+    width: 100%;
+    background-image: 'frontend/image/spencer-chow-PF_zcUW_NYU-unsplash.jpg';
+    background-size: cover;
+}
+
+/*
+.splash-title {
+    color: #FF7597
+} */
