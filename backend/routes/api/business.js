@@ -21,14 +21,14 @@ router.get(
     const allBusiness = await Business.findAll();
     // res.render("allBusinesses", { allBusiness });
     res.json(allBusiness);
-    console.log(allBusiness);
+    // console.log(allBusiness);
   })
 );
 
 //Get 1 business
 
 router.get(
-  "/:id",
+  "/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const oneBusiness = await Business.findOne({
       where: { id: req.params.id },
@@ -71,10 +71,10 @@ router.post(
 router.post(
   "/:id(\\d+)/delete",
   asyncHandler(async (req, res, next) => {
-    const business = await Business.findByPk(req.params.id);
-    await business.destroy();
+    const deleteBusiness = await Business.findByPk(req.params.id);
+    await deleteBusiness.destroy();
     // res.redirect("/");
-    res.json(business);
+    res.json(deleteBusiness);
   })
 );
 
