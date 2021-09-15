@@ -1,0 +1,54 @@
+.popular-search {
+  height: 400px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container-title {
+  font: bold 21px Arial, Helvetica, "Helvetica Neue";
+  color: #d32323;
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
+
+.popular-search-container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.popular-search-item {
+    margin: 20px;
+    border: 1px solid lightgray;
+    width: 200px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.popular-search-text {
+  font: bold 14px Arial, Helvetica, "Helvetica Neue";
+  text-align: center;
+  border: none;
+  position: relative;
+  bottom: 4px;
+  padding: 12px 0px;
+  border-radius: 0 0 4px 4px;
+  background-color: white;
+}
+
+.popular-search-pic-c {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.popular-search-pic {
+    border-radius: 4px 4px 0 0;
+}

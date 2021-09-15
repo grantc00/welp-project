@@ -23,9 +23,7 @@ function Navigation({ isLoaded }){
 
   return (
       <div className="splash-top-img">
-        <div className="nav-bar">
-          {isLoaded && sessionLinks}
-        </div>
+        <div className="nav-bar">{isLoaded && sessionLinks}</div>
         <div>
         <NavLink className="homeButton" exact to="/">Welp</NavLink>
         </div>

@@ -27,22 +27,42 @@ body {
 #loginButton {
     margin-left: 2rem;
     margin-right: 2rem;
-}
-/*
-#singupButton {
-    margin-top: 2rem;
-    margin-bottom:2rem;
-} */
+    font: bold 14px Arial, Helvetica, "Helvetica Neue";
+    color: white;
+    padding: 10px 10px;
+    background: transparent;
+    border-color: transparent;
+    outline: none;
+    margin-right: 10px;
+    height: 35px;
+    text-decoration: none;
+    height: auto;
+  }
 
-.splash-top-img {
-    top:0;
-    left:0;
+  #loginButton:hover {
+    cursor: pointer;
+  }
+
+  #singupButton {
+    font: bold 14px Arial, Helvetica, "Helvetica Neue";
+    color: white;
+    padding: 7px 24px 8px;
+    border: white solid 2px;
+    border-radius: 4px;
+    background: transparent;
+    text-decoration: none;
+  }
+
+  .splash-top-img {
+    top: 0;
+    left: 0;
     width: 100%;
-    background-image: 'frontend/image/spencer-chow-PF_zcUW_NYU-unsplash.jpg';
+    z-index: -1;
+    min-width: 1024px;
+    height: 600px;
+    background-color: #cccccc;
+    background-image: url(https://anakjajan.files.wordpress.com/2018/07/dscf7131.jpg?w=1344&h=744&crop=1);
+    min-height: 100%;
     background-size: cover;
-}
-
-/*
-.splash-title {
-    color: #FF7597
-} */
+    box-shadow: inset 0 0 0 2000px rgb(94 94 94 / 50%);
+  }
