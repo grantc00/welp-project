@@ -1,26 +1,40 @@
-.signupButton {
-    font: bold 16px Arial, Helvetica, "Helvetica Neue";
-    padding: 13px 13px;
-    margin-top: 6px;
-    border: 0px solid grey;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-left: 5px;
-    width: 100%;
-    outline: none;
-    color: #c9c6cd;
-    background-color: #ff0266;
+.signup-container {
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
+.signupButton {
+  font: bold 16px Arial, Helvetica, "Helvetica Neue";
+  padding: 13px 13px;
+  margin-top: 6px;
+  border: 0px solid grey;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 175px;
+  outline: none;
+  color: #c9c6cd;
+  background-color: #ff0266;
+}
+
+form {
+    width:170px;
+}
+
+input {
+    width:170px;
+}
+
+
 .login-text {
-    color: #c9c6cd
+  color: #c9c6cd;
 }
 
 .signupText {
-    color:#ff7597;
+  color: #ff7597;
 }
 
 .signup-form-header {
-    color:#ff7597;
-
+  color: #ff7597;
 }

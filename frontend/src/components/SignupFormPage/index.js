@@ -30,58 +30,60 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p className="signup-form-header">
-        Already on Welp?
-        <Link to="/login" className="login-text">
-          Log in
-        </Link>
-      </p>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label className="signupText">
-        Email
-        <input
-          type="text"
-          value={email}
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label className="signupText">
-        Username
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label className="signupText">
-        Password
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label className="signupText">
-        Confirm Password
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button className="signupButton" type="submit">Sign Up</button>
-    </form>
+    <div className="signup-container">
+      <form onSubmit={handleSubmit}>
+        <p className="signup-form-header">
+          Already on Welp?
+          <Link to="/login" className="login-text">
+            Log in
+          </Link>
+        </p>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+        <label className="signupText">
+          Email
+          <input
+            type="text"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label className="signupText">
+          Username
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
+        <label className="signupText">
+          Password
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <label className="signupText">
+          Confirm Password
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </label>
+        <button className="signupButton" type="submit">Sign Up</button>
+      </form>
+    </div>
   );
 }
 
