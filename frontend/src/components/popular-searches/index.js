@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./popular-searches.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getBusinesses } from "../../store/businesses";
 
 function PopularSearches() {
-  // const [business, setBusiness] = useState({});
+  const dispatch = useDispatch();
+  const allBusinesses = useSelector((state) => state.businesses);
+  const [business, setBusiness] = useState({});
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/api/business")
-  //     .then((response) => response.json())
-  //     .then((data) => setBusiness(data));
-  // }, []);
+  console.log(allBusinesses);
+  useEffect(() => {
+    (async () => {
+      const businesses = await dispatch(getBusinesses());
+      setBusiness(businesses);
+    })();
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   async function fetchMyAPI() {
-  //     let response = await fetch("http://localhost:3000/api/business");
-  //     let data = await response.json();
-  //     setBusiness(data);
-  //   }
+  console.log("business", business);
 
-  //   fetchMyAPI();
-  // }, []);
+  // const theBusiness = business?.map((currentBusiness) => (
+  //   <div key={currentBusiness.id}>
+  //     <p className="popular-search-text">{currentBusiness.title}</p>
+  //   </div>
+  // ));
 
   return (
     <div className="popular-search">
@@ -35,7 +39,7 @@ function PopularSearches() {
                 width="216px"
               />
             </div>
-            {/* <p className="popular-search-text">{business[0].title}</p> */}
+            <p className="popular-search-text">{business[0].title}</p>
           </div>
 
           <div className="popular-search-item">
