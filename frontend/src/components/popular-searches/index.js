@@ -21,7 +21,7 @@ function PopularSearches() {
           </div>
           <div className="popular-search-item">
             <div className="popular-search-pic-c">
-              <img className="popular-search-pic" src="	https://s3-media0.fl.yelpcdn.com/assets/public/gyms@2x.yji-3fb0a4f3e62f2e048ff6b94dcc909a4b.jpg" alt="Wendy's" height='174px' width='216px'/>
+              <img className="popular-search-pic" src="	https://uploads-ssl.webflow.com/5e336ab22524a2fb7e20c2e3/5f43e8a980b5b11e75a63904_337%20batu-gezer-AGGhkGuVs2w-unsplash.jpg" alt="Wendy's" height='174px' width='216px'/>
             </div>
             <p className="popular-search-text">Wendy's</p>
           </div>

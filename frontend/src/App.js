@@ -9,6 +9,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from './components/HomePage/index';
 import PopularSearches from "./components/popular-searches";
+import HomeFooter from "./components/HomeFooter";
 
 //testing
 function App() {
@@ -34,7 +35,9 @@ function App() {
             <SignupFormPage />
           </Route>
         </Switch>
+
       )}
+      <HomeFooter />
     </>
   );
 }
