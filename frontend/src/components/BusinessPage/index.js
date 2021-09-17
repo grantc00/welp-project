@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
 import "./BusinessPage.css";
 
 function BusinessPage() {
   const dispatch = useDispatch();
   const [business, setBusiness] = useState({});
+  const currentId = useParams();
+
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,31 +23,16 @@ function BusinessPage() {
     return <div className="App">Loading...</div>;
   }
 
-  const theBusiness = business?.forEach((currentBusiness) => (
-    <div key={currentBusiness.id}>
-      <Link to={`/business/${currentBusiness.id}`}>
-        <div className="popular-search-item">
-          <div className="popular-search-pic-c">
-            <img
-              className="popular-search-pic"
-              src="https://images.unsplash.com/photo-1500868766630-f5477adf6f9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80"
-              alt={currentBusiness.title}
-              height="174px"
-              width="216px"
-            />
-          </div>
-          <p className="popular-search-text">{currentBusiness.title}</p>
-        </div>
-      </Link>
-    </div>
-  ));
+  const findMatch = Object.values(business).find((p) => p.id == currentId.id);
+  console.log(findMatch);
 
   return (
     <div>
       <div className="business-page-nav">
         <div className="business-top-container"></div>
       </div>
-      <div className="business-intro-container">
+
+      <div className="business-info-container">
         <div className="business-pictures-container">
           <img
             src="https://images.unsplash.com/photo-1617196034003-475e2195380e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2200&q=80"
@@ -60,6 +47,15 @@ function BusinessPage() {
             alt=""
           />
         </div>
+        <div className="business-information">
+          <div className="business-info-text">
+            <p className="business-title">{findMatch.title}</p>
+            <div className="rating-box">
+              <div></div>
+              <span>9 reviews</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="business-review-button">
@@ -68,24 +64,25 @@ function BusinessPage() {
         </div>
       </div>
 
+      <div className="business-description">
+        <p>{findMatch.description}</p>
+      </div>
+
       <div className="business-info">
         <div className="business-info-text">Location and Hours</div>
         <div className="business-location-hours-container">
           <div className="business-location">
-            <div className="address">
-              900 16th St San Francisco, CA 94107 Mississippi St & 7th St
-              Potrero Hill
-            </div>
+            <div className="address">{findMatch.address}</div>
           </div>
           <div className="business-day-hours-container">
             <div className="business-day">
-              <div class="eachday">Mon</div>
-              <div class="eachday">Tue</div>
-              <div class="eachday">Wed</div>
-              <div class="eachday">Thu</div>
-              <div class="eachday">Fri</div>
-              <div class="eachday">Sat</div>
-              <div class="eachday">Sun</div>
+              <div className="eachday">Mon</div>
+              <div className="eachday">Tue</div>
+              <div className="eachday">Wed</div>
+              <div className="eachday">Thu</div>
+              <div className="eachday">Fri</div>
+              <div className="eachday">Sat</div>
+              <div className="eachday">Sun</div>
             </div>
             <div className="business-hours">
               <div className="hours">11:00 AM - 10:00 PM</div>
@@ -110,7 +107,7 @@ function BusinessPage() {
               <div className="review-rating"> 3 / 5 </div>
             </div>
           </div>
-          <div className="review-bottom">
+          <div>
             <div className="review-container">
               <div className="review-box-container">
                 <p className="review-box">

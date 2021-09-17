@@ -8,29 +8,30 @@
 
 .container-title {
   font: bold 21px Arial, Helvetica, "Helvetica Neue";
-  color: #ff0266;
+  color: #dc4e40;
   text-align: center;
   margin: 30px 0 20px 0;
 }
 
 .popular-search-container {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .popular-search-item {
-    margin: 20px;
-    border: 1px solid;
-    width: 216px;
-    border-radius: 5px;
-    background-color: #332940;
+  margin: 20px;
+  border: 1px solid;
+  border-color: grey;
+  width: 216px;
+  border-radius: 5px;
+  background-color: #222222;
 }
 
 .popular-search-text {
@@ -41,7 +42,7 @@
   bottom: 4px;
   padding: 12px 0px;
   border-radius: 0 0 4px 4px;
-    color: #ff7597;
+  color: crimson;
 }
 
 .popular-search-pic-c {
@@ -53,5 +54,5 @@
 }
 
 .popular-search-pic {
-    border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
 }
