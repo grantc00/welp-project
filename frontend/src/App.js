@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation";
 import HomePage from './components/HomePage/index';
 import PopularSearches from "./components/popular-searches";
 import HomeFooter from "./components/HomeFooter";
+import BusinessPage from "./components/BusinessPage";
 
 //testing
 function App() {
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path='/business/:id'>
+            <BusinessPage />
           </Route>
         </Switch>
 

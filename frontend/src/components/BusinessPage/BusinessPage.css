@@ -1,0 +1,110 @@
+body {
+  color: white;
+}
+
+.business-intro-container {
+  height: 426px;
+}
+
+.business-pictures-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.business-pictures-container img {
+  height: 100%;
+  width: 100%;
+  min-width: 319px;
+  object-fit: cover;
+}
+
+.business-review-button {
+  height: 100px;
+  border-bottom: 1px solid lightgrey;
+  margin-left: 140px;
+  margin-right: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.business-info {
+  height: 360px;
+  justify-content: center;
+  margin-left: 140px;
+  margin-right: 140px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.business-info-text {
+  font-size: 20px;
+  font-family: "Open Sans", Helvetica, "Helvetica Neue";
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding-top: 25px;
+}
+
+.business-location-hours-container {
+    display: flex;
+    font-size: 16px;
+    flex-direction: row;
+}
+
+.business-location {
+    font-weight: bold;
+    color: white;
+    font-family: "Open Sans", Helvetica, "Helvetica Neue", Arial;
+    margin-top: 22px;
+    margin-bottom: 5px;
+    width: 315px;
+}
+
+.business-day-hours-container {
+    display: flex;
+    margin-top: 22px;
+
+
+}
+
+.business-day {
+    width: 50px;
+    margin-left: 30px;
+}
+
+.review-whole-container {
+    margin-left: 141px;
+    margin-right: 141px;
+}
+
+.review-header {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica;
+    color: white;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.user-info {
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 15px;
+
+}
+
+.user-info div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.review-box-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica;
+    width: 700px;
+    line-height: 30px;
+}
