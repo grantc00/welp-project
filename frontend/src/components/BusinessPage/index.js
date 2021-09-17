@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
 import "./BusinessPage.css";
+import Modal from "../Modal"
 
 function BusinessPage() {
   const dispatch = useDispatch();
   const [business, setBusiness] = useState({});
   const currentId = useParams();
-
   const [isLoading, setLoading] = useState(true);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -60,7 +61,8 @@ function BusinessPage() {
 
       <div className="business-review-button">
         <div>
-          <button>Review Button</button>
+          <button onClick={() => setShow(true) }>Review Button</button>
+          <Modal onClose={() => setShow(false)} show={show} />
         </div>
       </div>
 
