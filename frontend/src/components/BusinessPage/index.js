@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./popular-searches.css";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
-import { Link } from "react-router-dom";
 
-function PopularSearches() {
+function BusinessPage() {
   const dispatch = useDispatch();
-  // const allBusinesses = useSelector((state) => state.businesses);
   const [business, setBusiness] = useState({});
   const [isLoading, setLoading] = useState(true);
 
@@ -22,10 +20,7 @@ function PopularSearches() {
     return <div className="App">Loading...</div>;
   }
 
-
-
-
-  const theBusiness = business?.map((currentBusiness) => (
+  const theBusiness = business?.forEach((currentBusiness) => (
     <div key={currentBusiness.id}>
       <Link to={`/business/${currentBusiness.id}`}>
         <div className="popular-search-item">
@@ -45,13 +40,23 @@ function PopularSearches() {
   ));
 
   return (
-    <div className="popular-search">
-      <div>
-        <h1 className="container-title">Find the Best Businesses in Town</h1>
-        <div className="popular-search-container">{theBusiness}</div>
+    <div>
+      <div className="business-page-nav">
+        <div className="business-top-container"></div>
       </div>
+      <div className="business-intro-container">
+        <div className="business-pictures-container">
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+        <div className="business-info"></div>
+      </div>
+      <div className="business-review"></div>
+      <div className="business-location-hours"></div>
+      <div className="business-reviews"></div>
     </div>
   );
 }
 
-export default PopularSearches;
+export default BusinessPage;

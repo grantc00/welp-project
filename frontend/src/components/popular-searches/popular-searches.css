@@ -21,6 +21,7 @@
     font: inherit;
     vertical-align: baseline;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
