@@ -3,8 +3,9 @@ body {
     background-color: #121212;
 }
 
-  .business-info-container {
-    height: 426px;
+  .business-location-hours-title {
+    font-size: 20px;
+    margin-top: 50px;
   }
 
   .business-information {
@@ -13,9 +14,12 @@ body {
     bottom: 240px;
   }
 
-  .business-info-text {
+.business-info-text {
     min-width: 600px;
+    margin-left: 141px;
   }
+
+
 
   .business-title {
     font-size: 48px;
@@ -142,3 +146,7 @@ body {
     width: 700px;
     line-height: 30px;
   }
+
+.business-info-container {
+  height: 426px;
+}

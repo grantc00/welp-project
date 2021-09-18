@@ -62,7 +62,7 @@ function BusinessPage() {
       <div className="business-review-button">
         <div>
           <button onClick={() => setShow(true) }>Review Button</button>
-          <Modal onClose={() => setShow(false)} show={show} />
+          <Modal onClose={() => setShow(false)} show={show} findMatch={findMatch} />
         </div>
       </div>
 
@@ -71,7 +71,7 @@ function BusinessPage() {
       </div>
 
       <div className="business-info">
-        <div className="business-info-text">Location and Hours</div>
+        <div className="business-location-hours-title">Location and Hours</div>
         <div className="business-location-hours-container">
           <div className="business-location">
             <div className="address">{findMatch.address}</div>
