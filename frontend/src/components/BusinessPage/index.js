@@ -89,7 +89,7 @@ function BusinessPage() {
             <p className="business-title">{findMatch.title}</p>
             <div className="rating-box">
               <div></div>
-              <span>9 reviews</span>
+              <span className="rating-text">9 reviews</span>
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@ function BusinessPage() {
 
       <div>
         <div className="review-whole-container">
-          <h4 className="review-header">Recommended Reviews</h4>
+          <h4 className="review-header">Reviews</h4>
           <div className="review-top">
             <div className="user-info">
               <div className="user-name">UserId: {allReviews.userId}</div>

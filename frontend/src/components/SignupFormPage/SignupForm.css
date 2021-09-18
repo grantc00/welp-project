@@ -8,14 +8,14 @@
 .signupButton {
   font: bold 16px Arial, Helvetica, "Helvetica Neue";
   padding: 13px 13px;
-  margin-top: 6px;
-  border: 0px solid grey;
+  margin-top: 10px;
+  border: 2px solid #ffffff;
   border-radius: 4px;
   box-sizing: border-box;
   width: 175px;
   outline: none;
-  color: #c9c6cd;
-  background-color: #ff0266;
+  color: #ffffff;
+  background-color: #000000;
 }
 
 form {
@@ -28,13 +28,19 @@ input {
 
 
 .login-text {
-  color: #c9c6cd;
+  color: #848484;
 }
 
 .signupText {
-  color: #ff7597;
+  color: #bbbbbb;
+  background-color: #000000;
+}
+.signup-textarea {
+  background-color: #000000;
+  color: white;
 }
 
+
 .signup-form-header {
-  color: #ff7597;
+  color: #ffffff;
 }

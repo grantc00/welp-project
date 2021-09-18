@@ -1,151 +1,167 @@
 body {
-    color: lightgrey;
-    background-color: #121212;
+  background-color: #000000;
 }
 
-  .business-location-hours-title {
-    font-size: 20px;
-    margin-top: 50px;
-  }
+.business-title {
+  font-size: 48px;
+  font-weight: lighter;
+  font: bold arial, helvetica;
+  color: #ffffff;
+  font-weight: bolder;
+}
 
-  .business-information {
-    position: relative;
-    display: flex;
-    bottom: 240px;
-  }
+.rating-box {
+  display: flex;
+  color: #bbbbbb;
+  border: 2px solid #848484;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 105px;
+}
+
+.business-review-button {
+  height: 100px;
+  margin-left: 140px;
+  margin-right: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.business-review-button button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  width: 150px;
+}
+
+.business-location-hours-title {
+  font-size: 25px;
+  font-weight: 900;
+  margin-top: 50px;
+  color: #bbbbbb;
+  font-size: bold;
+}
+
+.business-information {
+  position: relative;
+  display: flex;
+  bottom: 240px;
+}
 
 .business-info-text {
-    min-width: 600px;
-    margin-left: 141px;
-  }
-
-
-
-  .business-title {
-    font-size: 48px;
-    font-weight: lighter;
-    font-family: "Montserrat", sans-serif;
-    color:#cbc6d9;
-    font-weight: bolder;
+  min-width: 600px;
+  margin-left: 141px;
 }
 
-  .rating-box {
-    display: flex;
-    color: tomato;
-  }
+.business-pictures-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
 
-  .business-pictures-container {
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
+.business-pictures-container img {
+  height: 100%;
+  width: 100%;
+  min-width: 319px;
+  object-fit: cover;
+}
 
-  .business-pictures-container img {
-    height: 100%;
-    width: 100%;
-    min-width: 319px;
-    object-fit: cover;
-  }
+.business-description {
+  height: 100px;
+  margin-left: 140px;
+  margin-right: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .business-review-button {
-    height: 100px;
-    margin-left: 140px;
-    margin-right: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.business-description p {
+  color: #bbbbbb;
+}
 
-  }
+.business-info {
+  height: 360px;
+  justify-content: center;
+  margin-left: 140px;
+  margin-right: 140px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
 
-  .business-review-button button{
-    background-color: crimson;
-  }
+.business-info-text {
+  font-size: 20px;
+  font-family: "Open Sans", Helvetica, "Helvetica Neue";
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding-top: 25px;
+}
+.business-day-hours-container {
+  display: flex;
+  margin-top: 22px;
+  color: #848484;
+}
 
-  .business-description {
-    height: 100px;
-    margin-left: 140px;
-    margin-right: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.business-location-hours-container {
+  display: flex;
+  font-size: 16px;
+  flex-direction: row;
+}
 
-  .business-info {
-    height: 360px;
-    justify-content: center;
-    margin-left: 140px;
-    margin-right: 140px;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-  }
+.business-location {
+  font-weight: bold;
+  color: #848484;
+  font-family: "Open Sans", Helvetica, "Helvetica Neue", Arial;
+  margin-top: 22px;
+  margin-bottom: 5px;
+  width: 315px;
+}
 
-  .business-info-text {
-    font-size: 20px;
-    font-family: "Open Sans", Helvetica, "Helvetica Neue";
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    padding-top: 25px;
-  }
 
-  .business-location-hours-container {
-    display: flex;
-    font-size: 16px;
-    flex-direction: row;
-  }
+.business-day {
+  width: 50px;
+  margin-left: 30px;
+}
 
-  .business-location {
-    font-weight: bold;
-    color: white;
-    font-family: "Open Sans", Helvetica, "Helvetica Neue", Arial;
-    margin-top: 22px;
-    margin-bottom: 5px;
-    width: 315px;
-  }
+.review-whole-container {
+  margin-left: 141px;
+  margin-right: 141px;
+  color: #ffffff;
+}
 
-  .business-day-hours-container {
-    display: flex;
-    margin-top: 22px;
-  }
+.review-header {
+  font-size: 25px;
+  font-weight: 900;
+  color: #bbbbbb;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica;
 
-  .business-day {
-    width: 50px;
-    margin-left: 30px;
-  }
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
 
-  .review-whole-container {
-    margin-left: 141px;
-    margin-right: 141px;
-  }
+.user-info {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 15px;
+}
 
-  .review-header {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica;
+.user-info div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #848484;
+}
 
-    margin-top: 35px;
-    margin-bottom: 35px;
-  }
-
-  .user-info {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 15px;
-  }
-
-  .user-info div {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .review-box-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 15px;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica;
-    width: 700px;
-    line-height: 30px;
-  }
+.review-box-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica;
+  width: 700px;
+  line-height: 30px;
+  color: #848484;
+}
 
 .business-info-container {
   height: 426px;

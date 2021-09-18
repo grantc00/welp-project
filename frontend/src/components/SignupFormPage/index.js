@@ -44,6 +44,7 @@ function SignupFormPage() {
         <label className="signupText">
           Email
           <input
+            className="signup-textarea"
             type="text"
             value={email}
             placeholder="Email"
@@ -54,6 +55,7 @@ function SignupFormPage() {
         <label className="signupText">
           Username
           <input
+          className="signup-textarea"
             type="text"
             placeholder="Username"
             value={username}
@@ -64,6 +66,7 @@ function SignupFormPage() {
         <label className="signupText">
           Password
           <input
+          className="signup-textarea"
             type="password"
             placeholder="Password"
             value={password}
@@ -71,9 +74,10 @@ function SignupFormPage() {
             required
           />
         </label>
-        <label className="signupText">
+        <label  className="signupText">
           Confirm Password
           <input
+          className="signup-textarea"
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}

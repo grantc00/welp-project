@@ -8,9 +8,9 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from './components/HomePage/index';
-import PopularSearches from "./components/popular-searches";
 import HomeFooter from "./components/HomeFooter";
 import BusinessPage from "./components/BusinessPage";
+// import PopularSearches from "./components/popular-searches";
 
 //testing
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomePage />
-            <PopularSearches />
+            {/* <PopularSearches /> */}
           </Route>
           <Route path="/login">
             <LoginFormPage />

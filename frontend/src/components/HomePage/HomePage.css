@@ -1,0 +1,40 @@
+.homePage-business {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container-title {
+  font: bold Arial, Helvetica, "Helvetica Neue";
+  margin: 30px 0 20px 0;
+  color: #bbbbbb;
+  text-align: center;
+}
+
+.homePage-business-container {
+  display: flex;
+  vertical-align: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.homePage-item {
+  margin: 20px;
+  border: 1px solid;
+  border-color: #848484;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+.homePage-business-title {
+  font: bold 15px Arial, Helvetica, "Helvetica Neue";
+  text-align: center;
+  position: relative;
+  padding: 12px 0px;
+  color: #bbbbbb;
+}
+
+.homePage-pic {
+  border-radius: 4px 4px 0 0;
+}

@@ -42,6 +42,7 @@ function LoginFormPage() {
         </ul>
         <label>
           <input
+           className="info-textarea"
             type="text"
             value={credential}
             placeholder="Email or Username"
@@ -51,6 +52,7 @@ function LoginFormPage() {
         </label>
         <label>
           <input
+           className="info-textarea"
             type="password"
             value={password}
             placeholder="Password"
