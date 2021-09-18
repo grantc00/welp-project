@@ -1,17 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
+import { getReviews } from "../../store/reviews";
 import "./BusinessPage.css";
-import Modal from "../Modal"
+import Modal from "../Modal";
+import Moment from "moment";
 
 function BusinessPage() {
   const dispatch = useDispatch();
   const [business, setBusiness] = useState({});
   const currentId = useParams();
-  const [isLoading, setLoading] = useState(true);
+  const history = useHistory();
+
+  // user
+  const [isUser, setIsUser] = useState(false);
+
+  const user = useSelector((state) => state.session.user);
+  const allReviews = useSelector((state) => state.reviews.reviews);
+
+  useEffect(() => {
+    if (user) {
+      setIsUser(true);
+    }
+  }, [user]);
+
+  //modal
   const [show, setShow] = useState(false);
 
+  // show loading until finish fetching data from the server
+  const [isLoading, setLoading] = useState(true);
+  const [isReviewsLoading, setReviewsLoading] = useState(true);
+
+  // get all business
   useEffect(() => {
     (async () => {
       const businesses = await dispatch(getBusinesses());
@@ -20,12 +41,27 @@ function BusinessPage() {
     })();
   }, [dispatch]);
 
+  // find the current business
+  const findMatch = Object.values(business).find((p) => p.id == currentId.id);
+  console.log(findMatch);
+
+  // find all reviews of the current business
+  useEffect(() => {
+    (async () => {
+      await dispatch(getReviews(currentId.id));
+      setReviewsLoading(false);
+    })();
+  }, [dispatch, currentId]);
+
+  // show loading if haven't fetch all data
   if (isLoading) {
     return <div className="App">Loading...</div>;
   }
+  if (isReviewsLoading) {
+    return <div className="App">Review Loading...</div>;
+  }
 
-  const findMatch = Object.values(business).find((p) => p.id == currentId.id);
-  console.log(findMatch);
+  console.log("reviews:", allReviews);
 
   return (
     <div>
@@ -61,8 +97,18 @@ function BusinessPage() {
 
       <div className="business-review-button">
         <div>
-          <button onClick={() => setShow(true) }>Review Button</button>
-          <Modal onClose={() => setShow(false)} show={show} findMatch={findMatch} />
+          <button
+            onClick={
+              isUser ? () => setShow(true) : () => history.push("/login")
+            }
+          >
+            Review Button
+          </button>
+          <Modal
+            onClose={() => setShow(false)}
+            show={show}
+            findMatch={findMatch}
+          />
         </div>
       </div>
 
@@ -104,21 +150,17 @@ function BusinessPage() {
           <h4 className="review-header">Recommended Reviews</h4>
           <div className="review-top">
             <div className="user-info">
-              <div className="user-name">Testing 1</div>
-              <div className="review-date">Sep 16</div>
-              <div className="review-rating"> 3 / 5 </div>
+              <div className="user-name">UserId: {allReviews.userId}</div>
+              <div className="review-date">
+                Date: {Moment(allReviews.createdAt).format("d MMM YYYY")}
+              </div>
+              <div className="review-rating"> {allReviews.rating} / 5</div>
             </div>
           </div>
           <div>
             <div className="review-container">
               <div className="review-box-container">
-                <p className="review-box">
-                  So excited to finally have halal birria in SF! I went to their
-                  food truck in San Bruno a few months ago and been a huge fan
-                  since. This new location has tons of seats, only a 10 min walk
-                  from 24th bart and has new menu options (torta, birria fries
-                  and more drinks).
-                </p>
+                <p className="review-box">{allReviews.answer}</p>
               </div>
             </div>
           </div>
