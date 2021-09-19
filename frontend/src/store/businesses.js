@@ -14,6 +14,11 @@ const addBusiness = (businesses) => ({
   payload: businesses,
 });
 
+const updateBusiness = (businesses) => ({
+  type: SET_BUSINESSES,
+  payload: businesses,
+});
+
 // Selectors ---------------------------------
 
 export const getBusinesses = () => async (dispatch) => {
@@ -67,6 +72,24 @@ export const deleteBusiness = (businessId) => async (dispatch) => {
   const data = await response.json();
   dispatch(setBusinesses(data));
 };
+
+// Edit business ---------------------------------
+export const editBusiness =
+  ({ businessId, title, description, address }) =>
+  async (dispatch) => {
+    const response = await csrfFetch(`/api/business/${businessId}/edit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        address: address,
+      }),
+    });
+
+    const data = await response.json();
+    dispatch(updateBusiness(data));
+  };
 
 // reducer ---------------------------------
 

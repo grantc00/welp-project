@@ -7,6 +7,7 @@ import "./BusinessPage.css";
 import Modal from "../Modal";
 import Moment from "moment";
 import EditModal from "../EditModal";
+import EditBusinessModal from "../EditBusinessModal";
 
 function BusinessPage() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function BusinessPage() {
   const [matchReview, setMatchReview] = useState([]);
   const currentId = useParams();
   const history = useHistory();
+  const [showBusinessEdit, setShowBusinessEdit] = useState(false);
 
   let paramId = useParams();
 
@@ -210,18 +212,27 @@ function BusinessPage() {
       </div>
       <div className="business-remove-edit-button-container">
         {userId === findMatch.ownerId && (
-          <button
-            className="business-remove-button"
-            onClick={handleBusinessDelete}
-          >
-            Remove Business
-          </button>
+          <>
+            <button
+              className="business-remove-button"
+              onClick={handleBusinessDelete}
+            >
+              Remove Business
+            </button>
+
+            <button
+              className="business-edit-button"
+              onClick={() => setShowBusinessEdit(true)}
+            >
+              Edit Business
+            </button>
+            <EditBusinessModal
+              onClose={() => setShowBusinessEdit(false)}
+              showBusinessEdit={showBusinessEdit}
+              findMatch={findMatch}
+            />
+          </>
         )}
-
-          <button className="business-edit-button">
-            Edit Business
-          </button>
-
       </div>
     </div>
   );
