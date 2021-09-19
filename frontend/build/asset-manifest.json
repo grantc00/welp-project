@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2eefb6a9.chunk.css",
+    "main.js": "/static/js/main.39c44e62.chunk.js",
+    "main.js.map": "/static/js/main.39c44e62.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ccc4a72d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ccc4a72d.js.map",
+    "static/js/2.33b1c47a.chunk.js": "/static/js/2.33b1c47a.chunk.js",
+    "static/js/2.33b1c47a.chunk.js.map": "/static/js/2.33b1c47a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.2eefb6a9.chunk.css.map": "/static/css/main.2eefb6a9.chunk.css.map",
+    "static/js/2.33b1c47a.chunk.js.LICENSE.txt": "/static/js/2.33b1c47a.chunk.js.LICENSE.txt",
+    "static/media/welp-Logo.81f86ab1.png": "/static/media/welp-Logo.81f86ab1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ccc4a72d.js",
+    "static/js/2.33b1c47a.chunk.js",
+    "static/css/main.2eefb6a9.chunk.css",
+    "static/js/main.39c44e62.chunk.js"
+  ]
+}
