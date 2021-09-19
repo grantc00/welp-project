@@ -1,7 +1,7 @@
 // constants
 const SET_REVIEW = "reviews/ADD_REVIEW";
 const SET_REVIEWS = "reviews/SET_REVIEWS";
-
+const UPDATE_REVIEW = "reviews/UPDATE_REVIEW";
 // actions ------------------------------------
 
 const addReview = (review) => ({
@@ -14,35 +14,36 @@ const setReviews = (reviews) => ({
   payload: reviews,
 });
 
+const updateReview = (review) => ({
+  type: UPDATE_REVIEW,
+  payload: review,
+});
+
 // Selectors ---------------------------------
 
-export const createReview = (userId, reviewValues) => async (dispatch) => {
-  const response = await fetch(`/api/review`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(reviewValues),
-  });
+export const createReview =
+  ({ userId, businessId, rating, answer }) =>
+  async (dispatch) => {
+    const response = await fetch(`/api/review`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: userId,
+        businessId: businessId,
+        rating: rating,
+        answer: answer,
+      }),
+    });
 
-  if (response.ok) {
     const data = await response.json();
-
-    if (data.errors) {
-      let errs = Object.values(data.errors);
-      return errs;
-    } else {
-      dispatch(addReview(data));
-    }
-    return data;
-  } else {
-    return response.errors;
-  }
-};
+    dispatch(addReview(data.review));
+  };
 
 // get all reviews
-export const getReviews = (businessId) => async (dispatch) => {
-  const response = await fetch(`/api/review/${businessId}`);
+export const getReviews = () => async (dispatch) => {
+  const response = await fetch(`/api/review`);
 
   if (response.ok) {
     const data = await response.json();
@@ -58,6 +59,39 @@ export const getReviews = (businessId) => async (dispatch) => {
   }
 };
 
+// delete review
+
+export const deleteReviews = (reviewId) => async (dispatch) => {
+  // const response = await fetch(`/api/review/${reviewId}/delete`);
+
+  const response = await fetch(`/api/review/${reviewId}/delete`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ reviewId }),
+  });
+
+  const data = await response.json();
+  dispatch(setReviews(data));
+};
+
+export const editReview =
+  ({ reviewId, userId, businessId, rating, answer }) =>
+  async (dispatch) => {
+    const response = await fetch(`/api/review/${reviewId}/edit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: userId,
+        businessId: businessId,
+        rating: rating,
+        answer: answer,
+      }),
+    });
+
+    const data = await response.json();
+    dispatch(updateReview(data));
+  };
+
 // reducer ---------------------------------
 
 const initialState = { review: null, reviews: null };
@@ -67,6 +101,8 @@ export default function reducer(state = initialState, action) {
     case SET_REVIEW:
       return { ...state, review: action.payload };
     case SET_REVIEWS:
+      return { ...state, reviews: action.payload };
+    case UPDATE_REVIEW:
       return { ...state, reviews: action.payload };
     default:
       return state;

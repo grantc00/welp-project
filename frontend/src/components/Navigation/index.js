@@ -27,10 +27,11 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="splash-top-img">
-      <div>
+    <div className="nav-bar-container">
+      <div >
         <NavLink className="homeButton" exact to="/">
           <img className="logo" src={logo} alt="Welp" />
+
         </NavLink>
       </div>
       <div className="nav-bar">{isLoaded && sessionLinks}</div>

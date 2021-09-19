@@ -2,20 +2,15 @@ body {
   background-color: black;
 }
 
-.splash-top-img {
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-  min-width: 1024px;
-  height: 600px;
-  background-image: url(https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80);
-  min-height: 100%;
-  background-size: 100% 100%;
-  background-position: center;
+.nav-bar-container {
+  /* position: fixed; */
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  background-color: transparent;
+  background: transparent;
 }
 
 .homeButton {
@@ -67,5 +62,3 @@ body {
   justify-content: flex-end;
   margin-right: 92px;
 }
-
-

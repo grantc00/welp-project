@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import "./Modal.css";
-import { useDispatch, useSelector } from "react-redux";
-import { createReview } from "../../store/reviews";
+import React, { useState } from "react";
 
-const Modal = (props) => {
+import { useDispatch, useSelector } from "react-redux";
+import { editReview } from "../../store/reviews";
+
+const EditModal = (props) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [answer, setAnswer] = useState("");
   const [rating, setRating] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
 
   let userId;
   let businessId;
-
-  if (!props.show) {
+  let reviewId;
+  if (!props.showEdit) {
     return null;
   }
 
@@ -25,18 +24,15 @@ const Modal = (props) => {
     userId = user.id;
   }
 
-  const handleReviewSubmit = async (e) => {
+  if (props.currentReviews) {
+    reviewId = props.currentReviews.id;
+  }
+
+  const handleReviewSubmit = (e) => {
     // e.preventDefault();
     if (user) {
-      await dispatch(
-        createReview({ userId, businessId, rating, answer })
-      ).catch(async (res) => {
-        const data = await res.json();
-        console.log(data);
-      });
+      dispatch(editReview({ reviewId, userId, businessId, rating, answer }));
     }
-
-    setAnswer("");
   };
 
   return (
@@ -63,7 +59,7 @@ const Modal = (props) => {
             </label>
             <textarea
               name="textarea"
-              placeholder="Please be kind"
+              placeholder={props.currentReviews.answer}
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               required
@@ -78,7 +74,7 @@ const Modal = (props) => {
               className="submit-button"
               type="submit"
             >
-              Submit
+              Update
             </button>
           </div>
         </form>
@@ -87,4 +83,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default EditModal;

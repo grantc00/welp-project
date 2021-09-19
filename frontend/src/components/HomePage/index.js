@@ -42,10 +42,13 @@ function HomePage() {
   ));
 
   return (
-    <div className="homePage-business">
-      <div>
-        <h1 className="container-title">Find the Best Businesses in Town</h1>
-        <div className="homePage-business-container">{theBusiness}</div>
+    <div>
+      <div className="homePage-business">
+        <div >
+          <div className="homePage-img"></div>
+          <h1 className="container-title">Find the Best Businesses in Town</h1>
+          <div className="homePage-business-container">{theBusiness}</div>
+        </div>
       </div>
     </div>
   );

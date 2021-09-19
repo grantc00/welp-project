@@ -2,22 +2,28 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
-import { getReviews } from "../../store/reviews";
+import { getReviews, deleteReviews } from "../../store/reviews";
 import "./BusinessPage.css";
 import Modal from "../Modal";
 import Moment from "moment";
+import EditModal from "../EditModal";
+
 
 function BusinessPage() {
   const dispatch = useDispatch();
-  const [business, setBusiness] = useState({});
+  const [findMatch, setMatchBusiness] = useState({});
+  const [matchReview, setMatchReview] = useState([]);
   const currentId = useParams();
   const history = useHistory();
 
+  const user = useSelector((state) => state.session.user);
+  let userId;
+
+  if (user) {
+    userId = user.id;
+  }
   // user
   const [isUser, setIsUser] = useState(false);
-
-  const user = useSelector((state) => state.session.user);
-  const allReviews = useSelector((state) => state.reviews.reviews);
 
   useEffect(() => {
     if (user) {
@@ -27,6 +33,8 @@ function BusinessPage() {
 
   //modal
   const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  // const [currentReview, setCurrentReview] = useState();
 
   // show loading until finish fetching data from the server
   const [isLoading, setLoading] = useState(true);
@@ -35,20 +43,19 @@ function BusinessPage() {
   // get all business
   useEffect(() => {
     (async () => {
-      const businesses = await dispatch(getBusinesses());
-      setBusiness(businesses);
+      let data = await dispatch(getBusinesses());
+      setMatchBusiness(Object.values(data).find((p) => p.id == currentId.id));
       setLoading(false);
     })();
-  }, [dispatch]);
-
-  // find the current business
-  const findMatch = Object.values(business).find((p) => p.id == currentId.id);
-  console.log(findMatch);
+  }, [dispatch, currentId]);
 
   // find all reviews of the current business
   useEffect(() => {
     (async () => {
-      await dispatch(getReviews(currentId.id));
+      let reviews = await dispatch(getReviews());
+      setMatchReview(
+        Object.values(reviews).filter((p) => p.businessId == currentId.id)
+      );
       setReviewsLoading(false);
     })();
   }, [dispatch, currentId]);
@@ -61,7 +68,50 @@ function BusinessPage() {
     return <div className="App">Review Loading...</div>;
   }
 
-  console.log("reviews:", allReviews);
+  //  handle delete
+  const handleReviewDelete = async (e) => {
+    await dispatch(deleteReviews(e.target.value));
+    window.location.reload(false);
+  };
+
+  // render this to the reviews section
+  const theMatchReviews = matchReview?.map((currentReviews) => (
+    <div key={currentReviews.id}>
+      <div className="review-top">
+        <div className="user-info">
+          <div className="user-name">UserId: {currentReviews.userId}</div>
+          <div className="review-date">
+            Date: {Moment(currentReviews.createdAt).format("d MMM YYYY")}
+          </div>
+          <div className="review-rating"> {currentReviews.rating} / 5</div>
+        </div>
+      </div>
+      <div>
+        <div className="review-container">
+          <div className="review-box-container">
+            <p className="review-box">{currentReviews.answer}</p>
+          </div>
+        </div>
+
+        {/* Delete Button Start -------- */}
+        {currentReviews.userId === userId && (
+          <>
+            <button onClick={() => setShowEdit(true)}>Edit</button>
+            <EditModal 
+              onClose={() => setShowEdit(false)}
+              showEdit={showEdit}
+              findMatch={findMatch}
+              currentReviews={currentReviews}
+            />
+            <button value={currentReviews.id} onClick={handleReviewDelete}>
+              Delete
+            </button>
+          </>
+        )}
+        {/* Delete Button End -------- */}
+      </div>
+    </div>
+  ));
 
   return (
     <div>
@@ -148,22 +198,7 @@ function BusinessPage() {
       <div>
         <div className="review-whole-container">
           <h4 className="review-header">Reviews</h4>
-          <div className="review-top">
-            <div className="user-info">
-              <div className="user-name">UserId: {allReviews.userId}</div>
-              <div className="review-date">
-                Date: {Moment(allReviews.createdAt).format("d MMM YYYY")}
-              </div>
-              <div className="review-rating"> {allReviews.rating} / 5</div>
-            </div>
-          </div>
-          <div>
-            <div className="review-container">
-              <div className="review-box-container">
-                <p className="review-box">{allReviews.answer}</p>
-              </div>
-            </div>
-          </div>
+          {theMatchReviews}
         </div>
       </div>
     </div>
