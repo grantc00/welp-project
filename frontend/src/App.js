@@ -11,6 +11,7 @@ import HomePage from './components/HomePage/index';
 import HomeFooter from "./components/HomeFooter";
 import BusinessPage from "./components/BusinessPage";
 // import PopularSearches from "./components/popular-searches";
+import AddBusiness from "./components/AddBusiness";
 
 //testing
 function App() {
@@ -38,6 +39,9 @@ function App() {
           <Route path='/business/:id'>
             <BusinessPage />
           </Route>
+          {/* <Route path="/add-business">
+            <AddBusiness />
+          </Route> */}
           <Route>
             <p>Page Not Found</p>
           </Route>

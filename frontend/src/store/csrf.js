@@ -32,4 +32,4 @@ export function restoreCSRF() {
     return csrfFetch('/api/csrf/restore');
 }
 
-export default fetch;
+// export default fetch;

@@ -97,7 +97,7 @@ function BusinessPage() {
         {currentReviews.userId === userId && (
           <>
             <button onClick={() => setShowEdit(true)}>Edit</button>
-            <EditModal 
+            <EditModal
               onClose={() => setShowEdit(false)}
               showEdit={showEdit}
               findMatch={findMatch}
@@ -152,7 +152,7 @@ function BusinessPage() {
               isUser ? () => setShow(true) : () => history.push("/login")
             }
           >
-            Review Button
+            Review 
           </button>
           <Modal
             onClose={() => setShow(false)}

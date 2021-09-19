@@ -1,3 +1,4 @@
+import { csrfFetch } from "./csrf";
 // constants
 const SET_REVIEW = "reviews/ADD_REVIEW";
 const SET_REVIEWS = "reviews/SET_REVIEWS";
@@ -24,7 +25,7 @@ const updateReview = (review) => ({
 export const createReview =
   ({ userId, businessId, rating, answer }) =>
   async (dispatch) => {
-    const response = await fetch(`/api/review`, {
+    const response = await csrfFetch(`/api/review`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +44,7 @@ export const createReview =
 
 // get all reviews
 export const getReviews = () => async (dispatch) => {
-  const response = await fetch(`/api/review`);
+  const response = await csrfFetch(`/api/review`);
 
   if (response.ok) {
     const data = await response.json();
@@ -64,7 +65,7 @@ export const getReviews = () => async (dispatch) => {
 export const deleteReviews = (reviewId) => async (dispatch) => {
   // const response = await fetch(`/api/review/${reviewId}/delete`);
 
-  const response = await fetch(`/api/review/${reviewId}/delete`, {
+  const response = await csrfFetch(`/api/review/${reviewId}/delete`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ reviewId }),
@@ -77,7 +78,7 @@ export const deleteReviews = (reviewId) => async (dispatch) => {
 export const editReview =
   ({ reviewId, userId, businessId, rating, answer }) =>
   async (dispatch) => {
-    const response = await fetch(`/api/review/${reviewId}/edit`, {
+    const response = await csrfFetch(`/api/review/${reviewId}/edit`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

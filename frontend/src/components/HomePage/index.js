@@ -3,12 +3,14 @@ import "./HomePage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
 import { Link } from "react-router-dom";
+import BusinessModal from "../BusinessModal/index";
 
 function HomePage() {
   const dispatch = useDispatch();
   // const allBusinesses = useSelector((state) => state.businesses);
   const [business, setBusiness] = useState({});
   const [isLoading, setLoading] = useState(true);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -44,10 +46,16 @@ function HomePage() {
   return (
     <div>
       <div className="homePage-business">
-        <div >
+        <div>
           <div className="homePage-img"></div>
           <h1 className="container-title">Find the Best Businesses in Town</h1>
           <div className="homePage-business-container">{theBusiness}</div>
+          <div className="button-container">
+            <button className="Business-button" onClick={() => setShow(true)}>
+              New Business
+            </button>
+            <BusinessModal onClose={() => setShow(false)} show={show} />
+          </div>
         </div>
       </div>
     </div>
