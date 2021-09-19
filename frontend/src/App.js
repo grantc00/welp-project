@@ -11,7 +11,7 @@ import HomePage from './components/HomePage/index';
 import HomeFooter from "./components/HomeFooter";
 import BusinessPage from "./components/BusinessPage";
 // import PopularSearches from "./components/popular-searches";
-import AddBusiness from "./components/AddBusiness";
+
 
 //testing
 function App() {

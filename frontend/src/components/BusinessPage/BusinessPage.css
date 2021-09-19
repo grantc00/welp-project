@@ -166,3 +166,15 @@ body {
 .business-info-container {
   height: 426px;
 }
+
+.business-remove-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  width: 150px;
+}
+
+.business-remove-button-container {
+  display: flex;
+  justify-content: flex-end;
+}

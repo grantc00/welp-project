@@ -152,7 +152,7 @@ function BusinessPage() {
               isUser ? () => setShow(true) : () => history.push("/login")
             }
           >
-            Review 
+            Review
           </button>
           <Modal
             onClose={() => setShow(false)}
@@ -200,6 +200,11 @@ function BusinessPage() {
           <h4 className="review-header">Reviews</h4>
           {theMatchReviews}
         </div>
+      </div>
+      <div className="business-remove-button-container">
+        <button className="business-remove-button">
+            Remove Business
+        </button>
       </div>
     </div>
   );
