@@ -55,6 +55,19 @@ export const createBusiness =
     dispatch(addBusiness(data.businesses));
   };
 
+// Delete business ---------------------------------
+
+export const deleteBusiness = (businessId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/business/${businessId}/delete`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ businessId }),
+  });
+
+  const data = await response.json();
+  dispatch(setBusinesses(data));
+};
+
 // reducer ---------------------------------
 
 const initialState = { businesses: null };

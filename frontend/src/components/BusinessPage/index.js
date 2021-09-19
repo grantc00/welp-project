@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getBusinesses } from "../../store/businesses";
+import { getBusinesses, deleteBusiness } from "../../store/businesses";
 import { getReviews, deleteReviews } from "../../store/reviews";
 import "./BusinessPage.css";
 import Modal from "../Modal";
 import Moment from "moment";
 import EditModal from "../EditModal";
-
 
 function BusinessPage() {
   const dispatch = useDispatch();
@@ -15,6 +14,8 @@ function BusinessPage() {
   const [matchReview, setMatchReview] = useState([]);
   const currentId = useParams();
   const history = useHistory();
+
+  let paramId = useParams();
 
   const user = useSelector((state) => state.session.user);
   let userId;
@@ -113,6 +114,12 @@ function BusinessPage() {
     </div>
   ));
 
+  const handleBusinessDelete = async () => {
+    await dispatch(deleteBusiness(paramId.id));
+    // window.location.reload(false);
+    history.push("/");
+  };
+
   return (
     <div>
       <div className="business-page-nav">
@@ -202,9 +209,14 @@ function BusinessPage() {
         </div>
       </div>
       <div className="business-remove-button-container">
-        <button className="business-remove-button">
+        {userId === findMatch.ownerId && (
+          <button
+            className="business-remove-button"
+            onClick={handleBusinessDelete}
+          >
             Remove Business
-        </button>
+          </button>
+        )}
       </div>
     </div>
   );
