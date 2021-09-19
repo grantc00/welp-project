@@ -167,14 +167,32 @@ body {
   height: 426px;
 }
 
+
+.business-remove-edit-button-container {
+  display: flex;
+  justify-content: space-evenly;
+
+}
 .business-remove-button {
   background-color: #000000;
   color: #ffffff;
   border: 2px solid #ffffff;
   width: 150px;
+  margin-top: 100px;
 }
 
-.business-remove-button-container {
-  display: flex;
-  justify-content: flex-end;
+.business-edit-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  width: 150px;
+  margin-top: 100px;
+
+}
+
+.edit-delete-container button{
+  background-color: #000000;
+  color: #ffffff;
+  border: .5px ridge #ffffff;
+
 }

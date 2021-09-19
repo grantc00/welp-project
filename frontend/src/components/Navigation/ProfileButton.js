@@ -35,7 +35,7 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-circle" />
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
+        <ul className="profile-dropdown" style={{ color: "#bbbbbb", listStyle: "none" }}>
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>

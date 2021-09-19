@@ -25,6 +25,16 @@ function LoginFormPage() {
     );
   };
 
+   // demo user --------------
+   const demo = () => {
+    dispatch(
+      sessionActions.login({
+        credential: "demo@user.io",
+        password: "password",
+      })
+    );
+  };
+
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>
@@ -35,7 +45,7 @@ function LoginFormPage() {
             Sign up
           </Link>
         </p>
-        <ul>
+        <ul style={{ color: "#bbbbbb", listStyle: "none" }}>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -62,6 +72,10 @@ function LoginFormPage() {
         </label>
         <button className="loginButton" type="submit">
           Log In
+        </button>
+
+        <button className="loginButton" onClick={demo}>
+          Demo User
         </button>
       </form>
     </div>

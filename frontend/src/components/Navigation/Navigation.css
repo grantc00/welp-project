@@ -11,6 +11,8 @@ body {
   position: absolute;
   background-color: transparent;
   background: transparent;
+  left: auto;
+  right: 0px;
 }
 
 .homeButton {

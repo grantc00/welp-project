@@ -96,7 +96,7 @@ function BusinessPage() {
 
         {/* Delete Button Start -------- */}
         {currentReviews.userId === userId && (
-          <>
+          <div className="edit-delete-container">
             <button onClick={() => setShowEdit(true)}>Edit</button>
             <EditModal
               onClose={() => setShowEdit(false)}
@@ -107,7 +107,7 @@ function BusinessPage() {
             <button value={currentReviews.id} onClick={handleReviewDelete}>
               Delete
             </button>
-          </>
+          </div>
         )}
         {/* Delete Button End -------- */}
       </div>
@@ -208,7 +208,7 @@ function BusinessPage() {
           {theMatchReviews}
         </div>
       </div>
-      <div className="business-remove-button-container">
+      <div className="business-remove-edit-button-container">
         {userId === findMatch.ownerId && (
           <button
             className="business-remove-button"
@@ -217,6 +217,11 @@ function BusinessPage() {
             Remove Business
           </button>
         )}
+
+          <button className="business-edit-button">
+            Edit Business
+          </button>
+
       </div>
     </div>
   );
