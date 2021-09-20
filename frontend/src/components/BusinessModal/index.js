@@ -22,8 +22,6 @@ function BusinessModal(props) {
   }
 
   const handleBusinessSubmit = async (e) => {
-    // e.preventDefault();
-    // console.log({ userId, title, description, address });
     if (user) {
       await dispatch(
         createBusiness({ ownerId, title, description, address })

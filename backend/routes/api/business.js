@@ -6,22 +6,16 @@ const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { Business } = require("../../db/models");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-// const { all } = require('sequelize/types/lib/operators');
 
 const router = express.Router();
 
 //Get all bussinesses
-// router.get("/", (req, res) => {
-//     const allBusiness = Business.findAll();
-//     res.json(allBusiness);
-// })
 router.get(
   "/",
   asyncHandler(async (req, res) => {
     const allBusiness = await Business.findAll();
-    // res.render("allBusinesses", { allBusiness });
+
     res.json(allBusiness);
-    // console.log(allBusiness);
   })
 );
 
@@ -62,7 +56,7 @@ router.post(
       description: req.body.details,
       address: req.body.address,
     });
-    // res.redirect(`/${req.body.id}`)
+
     res.json(updateBusiness);
   })
 );
@@ -73,7 +67,7 @@ router.post(
   asyncHandler(async (req, res, next) => {
     const deleteBusiness = await Business.findByPk(req.params.id);
     await deleteBusiness.destroy();
-    // res.redirect("/");
+
     res.json(deleteBusiness);
   })
 );

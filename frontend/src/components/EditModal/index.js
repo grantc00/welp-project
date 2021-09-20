@@ -29,7 +29,6 @@ const EditModal = (props) => {
   }
 
   const handleReviewSubmit = (e) => {
-    // e.preventDefault();
     if (user) {
       dispatch(editReview({ reviewId, userId, businessId, rating, answer }));
     }

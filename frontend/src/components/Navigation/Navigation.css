@@ -3,7 +3,6 @@ body {
 }
 
 .nav-bar-container {
-  /* position: fixed; */
   display: flex;
   justify-content: space-between;
   overflow: hidden;

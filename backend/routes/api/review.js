@@ -23,7 +23,6 @@ router.get(
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    // console.log(req.params.id);
     const oneReview = await Review.findOne({
       where: { id: req.params.id },
     });

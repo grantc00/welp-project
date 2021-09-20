@@ -37,7 +37,7 @@ function BusinessPage() {
   //modal
   const [show, setShow] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
-  // const [currentReview, setCurrentReview] = useState();
+
 
   // show loading until finish fetching data from the server
   const [isLoading, setLoading] = useState(true);
@@ -96,7 +96,7 @@ function BusinessPage() {
           </div>
         </div>
 
-        {/* Delete Button Start -------- */}
+
         {currentReviews.userId === userId && (
           <div className="edit-delete-container">
             <button onClick={() => setShowEdit(true)}>Edit</button>
@@ -111,14 +111,14 @@ function BusinessPage() {
             </button>
           </div>
         )}
-        {/* Delete Button End -------- */}
+
       </div>
     </div>
   ));
 
   const handleBusinessDelete = async () => {
     await dispatch(deleteBusiness(paramId.id));
-    // window.location.reload(false);
+
     history.push("/");
   };
 

@@ -10,7 +10,7 @@ function HomePage() {
 
   const user = useSelector((state) => state.session.user);
   const history = useHistory();
-  // const allBusinesses = useSelector((state) => state.businesses);
+
   const [business, setBusiness] = useState({});
   const [isLoading, setLoading] = useState(true);
   const [show, setShow] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Modal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createReview } from "../../store/reviews";
@@ -8,7 +8,6 @@ const Modal = (props) => {
   const user = useSelector((state) => state.session.user);
   const [answer, setAnswer] = useState("");
   const [rating, setRating] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
 
   let userId;
   let businessId;
@@ -26,7 +25,6 @@ const Modal = (props) => {
   }
 
   const handleReviewSubmit = async (e) => {
-    // e.preventDefault();
     if (user) {
       await dispatch(
         createReview({ userId, businessId, rating, answer })

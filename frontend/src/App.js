@@ -7,11 +7,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import HomePage from './components/HomePage/index';
+import HomePage from "./components/HomePage/index";
 import HomeFooter from "./components/HomeFooter";
 import BusinessPage from "./components/BusinessPage";
-// import PopularSearches from "./components/popular-searches";
-
 
 //testing
 function App() {
@@ -28,7 +26,6 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomePage />
-            {/* <PopularSearches /> */}
           </Route>
           <Route path="/login">
             <LoginFormPage />
@@ -36,17 +33,13 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/business/:id'>
+          <Route path="/business/:id">
             <BusinessPage />
           </Route>
-          {/* <Route path="/add-business">
-            <AddBusiness />
-          </Route> */}
           <Route>
             <p>Page Not Found</p>
           </Route>
         </Switch>
-
       )}
       <HomeFooter />
     </>
